@@ -1,4 +1,3 @@
-
 const leaveDate = "2026-07-15";
 
 const tasks = [
@@ -9,7 +8,7 @@ email:"xxx@example.com",
 status:"进行中",
 note:"填写交接说明"
 },
-  {
+{
 project:"摩配BD",
 owner:"Thinco Zhang",
 email:"thinco.zhang@shopee.com",
