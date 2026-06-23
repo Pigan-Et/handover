@@ -31,7 +31,6 @@ document.getElementById("task-list").innerHTML+=`
 <td>${x.project}</td>
 <td>${x.owner}</td>
 <td>${x.email}</td>
-<td>${x.status}</td>
 <td>${x.note}</td>
 </tr>
 
