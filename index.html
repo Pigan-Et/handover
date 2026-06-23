@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工作交接手册</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>🌱 最后一程 · 工作交接手册</h1>
+<p>保持热爱，奔赴山海</p>
+</header>
+
+<main>
+<div class="card">
+<h2>⏳ 离职倒计时</h2>
+<p>最后工作日：<b id="target-date-str"></b></p>
+<div id="timer"></div>
+<div id="celebrate"></div>
+</div>
+
+<div class="card">
+<h2>📋 项目交接清单</h2>
+<table>
+<thead><tr><th>项目</th><th>负责人</th><th>邮箱</th><th>状态</th><th>备注</th></tr></thead>
+<tbody id="task-list"></tbody>
+</table>
+</div>
+</main>
+
+<footer>Powered by GitHub Pages</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+body{
+font-family:Microsoft YaHei;
+background:#f5f7ff;
+margin:0;
+color:#333;
+}
+
+header{
+text-align:center;
+padding:40px;
+}
+
+main{
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:25px;
+margin:20px;
+border-radius:20px;
+box-shadow:0 8px 25px #ddd;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+td,th{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#888;
+}
