@@ -1,40 +1,137 @@
-body{
-font-family:Microsoft YaHei;
-background:#f5f7ff;
-margin:0;
-color:#333;
+
+*{
+box-sizing:border-box;
 }
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+background:#f5f5f7;
+color:#1d1d1f;
+}
+
 
 header{
 text-align:center;
-padding:40px;
+padding:80px 20px 40px;
 }
 
+header h1{
+font-size:48px;
+letter-spacing:-2px;
+margin:0 0 15px;
+font-weight:700;
+}
+
+header p{
+font-size:20px;
+color:#6e6e73;
+}
+
+
 main{
-max-width:1000px;
+max-width:1100px;
 margin:auto;
+padding:20px;
+}
+
+
+.card{
+
+background:rgba(255,255,255,.85);
+border-radius:28px;
+padding:45px;
+margin-bottom:30px;
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+
+.hero{
+text-align:center;
+}
+
+
+.label{
+font-size:13px;
+letter-spacing:2px;
+color:#86868b;
+}
+
+
+.hero h2{
+font-size:42px;
+margin:20px;
+}
+
+
+#timer{
+
+font-size:36px;
+font-weight:600;
+letter-spacing:-1px;
+
+}
+
+
+#celebrate{
+
+font-size:28px;
+color:#34c759;
+margin-top:20px;
+
+}
+
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+
+th{
+
+text-align:left;
+color:#86868b;
+font-weight:500;
+
+}
+
+
+td,th{
+
+padding:18px 12px;
+border-bottom:1px solid #e5e5ea;
+
+}
+
+
+footer{
+
+text-align:center;
+padding:50px;
+color:#86868b;
+
+}
+
+
+@media(max-width:700px){
+
+header h1{
+font-size:34px;
 }
 
 .card{
-background:white;
 padding:25px;
-margin:20px;
-border-radius:20px;
-box-shadow:0 8px 25px #ddd;
+}
+
+#timer{
+font-size:24px;
 }
 
 table{
-width:100%;
-border-collapse:collapse;
+font-size:14px;
 }
 
-td,th{
-padding:12px;
-border-bottom:1px solid #eee;
-}
-
-footer{
-text-align:center;
-padding:30px;
-color:#888;
 }

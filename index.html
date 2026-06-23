@@ -6,32 +6,51 @@
 <title>工作交接手册</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header>
-<h1>🌱 最后一程 · 工作交接手册</h1>
-<p>保持热爱，奔赴山海</p>
+    <h1>最后一程 · 工作交接手册</h1>
+    <p>保持热爱，奔赴山海</p>
 </header>
 
 <main>
-<div class="card">
-<h2>⏳ 离职倒计时</h2>
-<p>最后工作日：<b id="target-date-str"></b></p>
-<div id="timer"></div>
-<div id="celebrate"></div>
-</div>
 
-<div class="card">
-<h2>📋 项目交接清单</h2>
+<section class="hero card">
+    <p class="label">LAST WORKING DAY</p>
+    <h2 id="target-date-str"></h2>
+    <div id="timer"></div>
+    <div id="celebrate"></div>
+</section>
+
+
+<section class="card">
+<h2>项目交接</h2>
+
 <table>
-<thead><tr><th>项目</th><th>负责人</th><th>邮箱</th><th>状态</th><th>备注</th></tr></thead>
+<thead>
+<tr>
+<th>项目</th>
+<th>负责人</th>
+<th>邮箱</th>
+<th>状态</th>
+<th>备注</th>
+</tr>
+</thead>
+
 <tbody id="task-list"></tbody>
+
 </table>
-</div>
+</section>
+
 </main>
 
-<footer>Powered by GitHub Pages</footer>
+<footer>
+Designed for GitHub Pages
+</footer>
 
 <script src="data.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
