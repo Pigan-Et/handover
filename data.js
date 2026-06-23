@@ -8,7 +8,7 @@ owner:"待定",
 email:"xxx@example.com",
 status:"进行中",
 note:"填写交接说明"
-}
+},
   {
 project:"摩配BD",
 owner:"Thinco Zhang",
