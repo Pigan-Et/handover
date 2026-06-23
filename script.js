@@ -1,39 +1,155 @@
+// 显示最后工作日
+document.getElementById("target-date-str").innerText = leaveDate;
 
-document.getElementById("target-date-str").innerText=leaveDate;
+
+// ======================
+// 倒计时
+// ======================
 
 function update(){
 
-let diff=new Date(leaveDate+" 23:59:59")-new Date();
+    let diff = new Date(leaveDate + " 23:59:59") - new Date();
 
-if(diff<=0){
-timer.innerHTML="";
-celebrate.innerHTML="🎉 已顺利从本公司毕业！";
-return;
+
+    // 已到离职日
+    if(diff <= 0){
+
+        timer.innerHTML = "";
+
+        celebrate.innerHTML = 
+        "🎉 已顺利从本公司毕业！<br>祝大家前程似锦！";
+
+        return;
+    }
+
+
+    let d = Math.floor(diff / 86400000);
+
+    let h = Math.floor(
+        diff % 86400000 / 3600000
+    );
+
+    let m = Math.floor(
+        diff % 3600000 / 60000
+    );
+
+    let s = Math.floor(
+        diff % 60000 / 1000
+    );
+
+
+    timer.innerHTML = 
+    `${d} 天 ${h} 时 ${m} 分 ${s} 秒`;
+
 }
 
-let d=Math.floor(diff/86400000);
-let h=Math.floor(diff%86400000/3600000);
-let m=Math.floor(diff%3600000/60000);
-let s=Math.floor(diff%60000/1000);
-
-timer.innerHTML=`${d} 天 ${h} 时 ${m} 分 ${s} 秒`;
-}
 
 setInterval(update,1000);
+
 update();
+
+
+
+
+// ======================
+// 项目交接表渲染
+// ======================
+
+const taskList = document.getElementById("task-list");
 
 
 tasks.forEach(x=>{
 
-document.getElementById("task-list").innerHTML+=`
 
-<tr>
-<td>${x.project}</td>
-<td>${x.owner}</td>
-<td>${x.email}</td>
-<td>${x.note}</td>
-</tr>
+    let noteContent = x.note;
 
-`;
+
+    // 如果备注是网页链接，自动跳转
+    if(
+        noteContent.startsWith("http://") ||
+        noteContent.startsWith("https://")
+    ){
+
+        noteContent = `
+        <a 
+        href="${noteContent}" 
+        target="_blank">
+        ${noteContent}
+        </a>
+        `;
+
+    }
+
+
+
+    taskList.innerHTML += `
+
+    <tr>
+
+        <td>
+        ${x.project}
+        </td>
+
+
+        <td>
+        ${x.owner}
+        </td>
+
+
+        <td 
+        class="copy-email"
+        onclick="copyEmail('${x.email}')">
+
+        ${x.email}
+
+        </td>
+
+
+        <td>
+        ${noteContent}
+        </td>
+
+
+    </tr>
+
+    `;
+
 
 });
+
+
+
+
+
+// ======================
+// 点击邮箱复制
+// ======================
+
+function copyEmail(email){
+
+
+    navigator.clipboard.writeText(email)
+
+    .then(()=>{
+
+
+        alert(
+        "邮箱已复制：\n" + email
+        );
+
+
+    })
+
+
+    .catch(()=>{
+
+
+        alert(
+        "复制失败，请手动复制"
+        );
+
+
+    });
+
+
+}
