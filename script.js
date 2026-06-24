@@ -16,7 +16,7 @@ function update(){
 
         timer.innerHTML = "";
 
-        celebrate.innerHTML = 
+        celebrate.innerHTML =
         "🎉 已顺利从本公司毕业！<br>祝大家前程似锦！";
 
         return;
@@ -38,7 +38,7 @@ function update(){
     );
 
 
-    timer.innerHTML = 
+    timer.innerHTML =
     `${d} 天 ${h} 时 ${m} 分 ${s} 秒`;
 
 }
@@ -61,32 +61,32 @@ const taskList = document.getElementById("task-list");
 tasks.forEach(x=>{
 
 
-    let noteContent = x.note;
+    let noteContent = x.note || "-";
 
 
     // 自动识别备注里的链接
 
-const urlRegex = /(https?:\/\/[^\s]+)/;
+    const urlRegex = /(https?:\/\/[^\s]+)/;
 
 
-if(urlRegex.test(noteContent)){
+    if(urlRegex.test(noteContent)){
 
 
-    const url = noteContent.match(urlRegex)[0];
+        const url = noteContent.match(urlRegex)[0];
 
 
-    noteContent = noteContent.replace(
-        url,
-        `
-        <a class="doc-link"
-        href="${url}"
-        target="_blank">
-        📄 查看文档
-        </a>
-        `
-    );
+        noteContent = noteContent.replace(
+            url,
+            `
+            <a class="doc-link"
+            href="${url}"
+            target="_blank">
+            📄 查看文档
+            </a>
+            `
+        );
 
-}
+    }
 
 
 
@@ -104,9 +104,9 @@ if(urlRegex.test(noteContent)){
         </td>
 
 
-        <td 
+        <td
         class="copy-email"
-        onclick="copyEmail('${x.email}')">
+        data-email="${x.email}">
 
         ${x.email}
 
@@ -133,31 +133,41 @@ if(urlRegex.test(noteContent)){
 // 点击邮箱复制
 // ======================
 
-function copyEmail(email){
+
+document.querySelectorAll(".copy-email")
+.forEach(item=>{
 
 
-    navigator.clipboard.writeText(email)
-
-    .then(()=>{
+    item.onclick=function(){
 
 
-        alert(
-        "邮箱已复制：\n" + email
-        );
+        let email = this.dataset.email;
 
 
-    })
+        navigator.clipboard.writeText(email)
+
+        .then(()=>{
 
 
-    .catch(()=>{
+            alert(
+            "邮箱已复制：\n" + email
+            );
 
 
-        alert(
-        "复制失败，请手动复制"
-        );
+        })
+
+        .catch(()=>{
 
 
-    });
+            alert(
+            "复制失败，请手动复制"
+            );
 
 
-}
+        });
+
+
+    }
+
+
+});
