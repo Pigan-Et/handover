@@ -64,19 +64,27 @@ tasks.forEach(x=>{
     let noteContent = x.note;
 
 
-    // 如果备注是网页链接，自动变标记
-    if(
- noteContent.startsWith("http://") ||
- noteContent.startsWith("https://")
-){
+    // 自动识别备注里的链接
 
-noteContent = `
-<a class="doc-link"
-href="${noteContent}"
-target="_blank">
-📄 查看文档
-</a>
-`;
+const urlRegex = /(https?:\/\/[^\s]+)/;
+
+
+if(urlRegex.test(noteContent)){
+
+
+    const url = noteContent.match(urlRegex)[0];
+
+
+    noteContent = noteContent.replace(
+        url,
+        `
+        <a class="doc-link"
+        href="${url}"
+        target="_blank">
+        📄 查看文档
+        </a>
+        `
+    );
 
 }
 
