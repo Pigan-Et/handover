@@ -1,5 +1,9 @@
-// 显示最后工作日
+// ======================
+// 最后工作日显示
+// ======================
+
 document.getElementById("target-date-str").innerText = leaveDate;
+
 
 
 // ======================
@@ -8,40 +12,55 @@ document.getElementById("target-date-str").innerText = leaveDate;
 
 function update(){
 
-    let diff = new Date(leaveDate + " 23:59:59") - new Date();
+
+    const diff = new Date(
+        leaveDate + " 23:59:59"
+    ) - new Date();
+
 
 
     // 已到离职日
+
     if(diff <= 0){
 
-        timer.innerHTML = "";
+        document.getElementById("timer").innerHTML = "";
 
-        celebrate.innerHTML =
+        document.getElementById("celebrate").innerHTML =
         "🎉 已顺利从本公司毕业！<br>祝大家前程似锦！";
 
+
         return;
+
     }
 
 
-    let d = Math.floor(diff / 86400000);
 
-    let h = Math.floor(
+    const days = Math.floor(
+        diff / 86400000
+    );
+
+
+    const hours = Math.floor(
         diff % 86400000 / 3600000
     );
 
-    let m = Math.floor(
+
+    const minutes = Math.floor(
         diff % 3600000 / 60000
     );
 
-    let s = Math.floor(
+
+    const seconds = Math.floor(
         diff % 60000 / 1000
     );
 
 
-    timer.innerHTML =
-    `${d} 天 ${h} 时 ${m} 分 ${s} 秒`;
+
+    document.getElementById("timer").innerHTML =
+    `${days} 天 ${hours} 时 ${minutes} 分 ${seconds} 秒`;
 
 }
+
 
 
 setInterval(update,1000);
@@ -52,122 +71,172 @@ update();
 
 
 // ======================
-// 项目交接表渲染
+// 项目交接表
 // ======================
+
 
 const taskList = document.getElementById("task-list");
 
 
-tasks.forEach(x=>{
+
+if(typeof tasks !== "undefined" && tasks.length > 0){
 
 
-    let noteContent = x.note || "-";
+    tasks.forEach(item=>{
 
 
-    // 自动识别备注里的链接
-
-    const urlRegex = /(https?:\/\/[^\s]+)/;
-
-
-    if(urlRegex.test(noteContent)){
-
-
-        const url = noteContent.match(urlRegex)[0];
-
-
-        noteContent = noteContent.replace(
-            url,
-            `
-            <a class="doc-link"
-            href="${url}"
-            target="_blank">
-            📄 查看文档
-            </a>
-            `
-        );
-
-    }
+        let noteContent = item.note || "-";
 
 
 
-    taskList.innerHTML += `
+        // ======================
+        // 自动识别任意位置URL
+        // ======================
 
-    <tr>
-
-        <td>
-        ${x.project}
-        </td>
+        const urlRegex = /(https?:\/\/[^\s\)]+)/;
 
 
-        <td>
-        ${x.owner}
-        </td>
+
+        if(urlRegex.test(noteContent)){
 
 
-        <td
-        class="copy-email"
-        data-email="${x.email}">
-
-        ${x.email}
-
-        </td>
+            const url = noteContent.match(urlRegex)[0];
 
 
-        <td>
-        ${noteContent}
-        </td>
+            noteContent = noteContent.replace(
+                url,
+
+                `
+                <a 
+                class="doc-link"
+                href="${url}"
+                target="_blank">
+
+                📄 查看文档
+
+                </a>
+                `
+
+            );
 
 
-    </tr>
-
-    `;
+        }
 
 
-});
 
 
+        taskList.innerHTML += `
+
+
+        <tr>
+
+
+            <td>
+            ${item.project}
+            </td>
+
+
+
+            <td>
+            ${item.owner}
+            </td>
+
+
+
+
+            <td
+            class="copy-email"
+            data-email="${item.email}">
+
+
+            ${item.email}
+
+
+            </td>
+
+
+
+
+            <td>
+
+            ${noteContent}
+
+            </td>
+
+
+
+        </tr>
+
+
+        `;
+
+
+
+    });
+
+
+
+}
 
 
 
 // ======================
-// 点击邮箱复制
+// 邮箱点击复制
 // ======================
 
 
-document.querySelectorAll(".copy-email")
-.forEach(item=>{
+document
+.querySelectorAll(".copy-email")
+.forEach(cell=>{
 
 
-    item.onclick=function(){
+    cell.addEventListener(
+        "click",
+        function(){
 
 
-        let email = this.dataset.email;
+            const email = this.dataset.email;
 
 
-        navigator.clipboard.writeText(email)
 
-        .then(()=>{
-
-
-            alert(
-            "邮箱已复制：\n" + email
-            );
+            navigator.clipboard.writeText(email)
 
 
-        })
-
-        .catch(()=>{
+            .then(()=>{
 
 
-            alert(
-            "复制失败，请手动复制"
-            );
+                this.innerHTML =
+                "✅ 已复制";
 
 
-        });
+                setTimeout(()=>{
 
 
-    }
+                    this.innerHTML = email;
+
+
+                },1200);
+
+
+
+            })
+
+
+
+            .catch(()=>{
+
+
+                alert(
+                "复制失败，请手动复制"
+                );
+
+
+            });
+
+
+
+        }
+    );
 
 
 });
