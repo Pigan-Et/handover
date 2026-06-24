@@ -64,21 +64,21 @@ tasks.forEach(x=>{
     let noteContent = x.note;
 
 
-    // 如果备注是网页链接，自动跳转
+    // 如果备注是网页链接，自动变标记
     if(
-        noteContent.startsWith("http://") ||
-        noteContent.startsWith("https://")
-    ){
+ noteContent.startsWith("http://") ||
+ noteContent.startsWith("https://")
+){
 
-        noteContent = `
-        <a 
-        href="${noteContent}" 
-        target="_blank">
-        ${noteContent}
-        </a>
-        `;
+noteContent = `
+<a class="doc-link"
+href="${noteContent}"
+target="_blank">
+📄 查看文档
+</a>
+`;
 
-    }
+}
 
 
 
