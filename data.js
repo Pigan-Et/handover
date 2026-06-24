@@ -1,5 +1,5 @@
 const leaveDate = '2026-07-15';
-const tasks = [{project: '摩配买手', owner: 'ZhangMM', email: 'xxx@example.com', note: '-'},
+const tasks = [{project: '摩配买手', owner: 'Michelle Zhang', email: 'xxx@example.com', note: '-'},
 {project: '摩配BD', owner: 'Thinco Zhang', email: 'thinco.zhang@shopee.com', note: '-'},
 {project: '汽配BD', owner: 'Cecilia Zhang', email: 'cecilia.zhang01@shopee.com', note: '负责内外配+钥匙扣+其他'},
 {project: '汽配BD', owner: 'Yifeng', email: 'yifeng.gu@shopee.com', note: '负责零件+工具+护理'},
