@@ -241,12 +241,12 @@ document
 
 });
 // ======================
-// Thanks 名字云
+// Thanks 自动避让名字云
 // ======================
 
 
-const cloud =
-document.getElementById("people-cloud");
+const cloud = document.getElementById("people-cloud");
+
 
 
 if(
@@ -255,28 +255,37 @@ typeof thanks !== "undefined"
 ){
 
 
-    const positions = [
 
-        [10,15],
-        [35,10],
-        [65,15],
+    const placed = [];
 
-        [5,45],
-        [30,40],
-        [60,45],
-        [80,50],
 
-        [15,75],
-        [45,70],
-        [70,75]
 
-    ];
+    function isOverlap(rect){
+
+
+        return placed.some(item=>{
+
+
+            return !(
+                rect.right < item.left ||
+                rect.left > item.right ||
+                rect.bottom < item.top ||
+                rect.top > item.bottom
+            );
+
+
+        });
+
+
+    }
+
 
 
 
     [...thanks]
     .sort(()=>Math.random()-0.5)
-    .forEach((name,index)=>{
+    .forEach(name=>{
+
 
 
         const div =
@@ -294,7 +303,7 @@ typeof thanks !== "undefined"
         // 随机大小
 
         const size =
-        Math.floor(Math.random()*10)+15;
+        Math.floor(Math.random()*12)+14;
 
 
         div.style.fontSize =
@@ -302,22 +311,107 @@ typeof thanks !== "undefined"
 
 
 
-        // 使用预设散点位置
-
-        const pos =
-        positions[index % positions.length];
-
-
-        div.style.left =
-        pos[0]+"%";
-
-
-        div.style.top =
-        pos[1]+"%";
+        cloud.appendChild(div);
 
 
 
-        // 随机漂浮
+
+        let success=false;
+
+
+
+        let count=0;
+
+
+
+
+        while(
+            !success &&
+            count<100
+        ){
+
+
+
+            const left =
+            Math.random()*75;
+
+
+            const top =
+            Math.random()*70;
+
+
+
+
+            div.style.left =
+            left+"%";
+
+
+            div.style.top =
+            top+"%";
+
+
+
+
+            const rect =
+            div.getBoundingClientRect();
+
+
+
+            const cloudRect =
+            cloud.getBoundingClientRect();
+
+
+
+
+            const relative = {
+
+
+                left:
+                rect.left-cloudRect.left-10,
+
+
+                right:
+                rect.right-cloudRect.left+10,
+
+
+                top:
+                rect.top-cloudRect.top-10,
+
+
+                bottom:
+                rect.bottom-cloudRect.top+10
+
+
+            };
+
+
+
+
+
+            if(
+                !isOverlap(relative)
+            ){
+
+
+                placed.push(relative);
+
+
+                success=true;
+
+
+            }
+
+
+
+            count++;
+
+
+        }
+
+
+
+
+        // 随机动画
 
         div.style.animationDuration =
         Math.random()*3+4+"s";
@@ -329,10 +423,8 @@ typeof thanks !== "undefined"
 
 
 
-        cloud.appendChild(div);
-
-
     });
+
 
 
 }
