@@ -325,6 +325,112 @@ content:"备注";
 
 }
 
+/* ======================
+Thanks 名字漂浮
+====================== */
+
+
+.thanks-card{
+
+text-align:center;
+
+overflow:hidden;
+
+}
+
+
+.thanks-sub{
+
+color:#86868b;
+
+margin-bottom:30px;
+
+}
+
+
+
+#people-cloud{
+
+position:relative;
+
+height:320px;
+
+}
+
+
+
+
+.person{
+
+
+position:absolute;
+
+
+padding:10px 20px;
+
+
+background:white;
+
+
+border-radius:30px;
+
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+
+
+
+font-weight:500;
+
+
+white-space:nowrap;
+
+
+color:#1d1d1f;
+
+
+animation:
+float 5s ease-in-out infinite;
+
+
+
+transition:.3s;
+
+
+}
+
+
+
+.person:hover{
+
+
+transform:scale(1.15);
+
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.15);
+
+
+}
+
+
+
+@keyframes float{
+
+
+0%,100%{
+
+margin-top:0;
+
+}
+
+
+50%{
+
+margin-top:-18px;
+
+}
+
 
 
 }
