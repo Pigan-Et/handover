@@ -1,1 +1,1 @@
-const thanks = ['cecilia','dora','dorothy','elaine','ethan','evie','fiona','fish','heemin','icey','jack','jeson','john','lennox','lesley','longyun','quinn','sofia','thinco','yifeng','yuri','zitao','zoe'];
+const thanks = ['cecilia','dora','dorothy','elaine','ethan','evie','fiona','fish','heemin','icey','jack','jeson','lennox','lesley','longyun','quinn','sofia','thinco','yifeng','zitao','zoe','joey','echo','kimi','alex','roger','natalia','yana','yara','jinny','cheryl','daisy','aries','sybil','finn','betty','stannis','scarlett','lris','hank','ricky'];
