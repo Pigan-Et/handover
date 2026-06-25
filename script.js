@@ -317,15 +317,26 @@ if(cloud && typeof thanks !== "undefined"){
 
 
 
-            const x =
-            Math.random()*
-            (cloud.clientWidth-120);
+           const padding = 20;
+
+
+const x =
+Math.random() *
+(
+cloud.clientWidth
+- div.offsetWidth
+- padding
+);
 
 
 
-            const y =
-            Math.random()*
-            (cloud.clientHeight-60);
+const y =
+Math.random() *
+(
+cloud.clientHeight
+- div.offsetHeight
+- padding
+);
 
 
 
