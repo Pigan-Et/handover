@@ -248,19 +248,13 @@ document
 const cloud = document.getElementById("people-cloud");
 
 
-
-if(
-cloud &&
-typeof thanks !== "undefined"
-){
-
+if(cloud && typeof thanks !== "undefined"){
 
 
     const placed = [];
 
 
-
-    function isOverlap(rect){
+    function checkCollision(rect){
 
 
         return placed.some(item=>{
@@ -282,15 +276,12 @@ typeof thanks !== "undefined"
 
 
 
-    [...thanks]
+    thanks
     .sort(()=>Math.random()-0.5)
     .forEach(name=>{
 
 
-
-        const div =
-        document.createElement("div");
-
+        const div=document.createElement("div");
 
 
         div.className="person";
@@ -299,87 +290,66 @@ typeof thanks !== "undefined"
         div.innerText=name;
 
 
-
-        // 随机大小
-
-        const size =
-        Math.floor(Math.random()*12)+14;
-
-
-        div.style.fontSize =
-        size+"px";
-
-
-
         cloud.appendChild(div);
 
 
 
+        // 随机大小
 
-        let success=false;
-
-
-
-        let count=0;
+        const fontSize =
+        Math.floor(Math.random()*12)+16;
 
 
-
-
-        while(
-            !success &&
-            count<100
-        ){
-
-
-
-            const left =
-            Math.random()*75;
-
-
-            const top =
-            Math.random()*70;
+        div.style.fontSize =
+        fontSize+"px";
 
 
 
 
-            div.style.left =
-            left+"%";
+        let placedOK=false;
 
 
-            div.style.top =
-            top+"%";
-
+        let tries=0;
 
 
 
-            const rect =
-            div.getBoundingClientRect();
+        while(!placedOK && tries<200){
 
 
 
-            const cloudRect =
-            cloud.getBoundingClientRect();
+            const x =
+            Math.random()*
+            (cloud.clientWidth-120);
+
+
+
+            const y =
+            Math.random()*
+            (cloud.clientHeight-60);
+
+
+
+            div.style.left=x+"px";
+
+            div.style.top=y+"px";
 
 
 
 
-            const relative = {
+            const rect={
 
 
-                left:
-                rect.left-cloudRect.left-10,
+                left:x,
+
+                top:y,
 
 
                 right:
-                rect.right-cloudRect.left+10,
-
-
-                top:
-                rect.top-cloudRect.top-10,
+                x+div.offsetWidth,
 
 
                 bottom:
-                rect.bottom-cloudRect.top+10
+                y+div.offsetHeight
 
 
             };
@@ -387,35 +357,45 @@ typeof thanks !== "undefined"
 
 
 
-
-            if(
-                !isOverlap(relative)
-            ){
+            if(!checkCollision(rect)){
 
 
-                placed.push(relative);
+                placed.push(rect);
 
 
-                success=true;
+                placedOK=true;
 
 
             }
 
 
 
-            count++;
+            tries++;
 
 
         }
 
 
 
+        // 防止极端情况
 
-        // 随机动画
+        if(!placedOK){
+
+
+            div.style.left=
+            Math.random()*80+"%";
+
+
+            div.style.top=
+            Math.random()*80+"%";
+
+
+        }
+
+
 
         div.style.animationDuration =
         Math.random()*3+4+"s";
-
 
 
         div.style.animationDelay =
