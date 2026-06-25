@@ -474,3 +474,17 @@ text-decoration:none;
 text-decoration:underline;
 
 }
+
+/* 手机端 Thanks 气泡区域 */
+
+@media(max-width:700px){
+
+
+#people-cloud{
+
+height:700px;
+
+}
+
+
+}
