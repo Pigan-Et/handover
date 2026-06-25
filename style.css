@@ -436,3 +436,41 @@ margin-top:-18px;
 
 
 }
+.contact{
+
+display:block;
+
+width:max-content;
+
+margin:10px auto 0;
+
+font-size:14px;
+
+color:#86868b;
+
+background:#ffffff;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,.06);
+
+}
+
+
+.contact a{
+
+color:#0071e3;
+
+text-decoration:none;
+
+}
+
+
+.contact a:hover{
+
+text-decoration:underline;
+
+}
