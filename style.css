@@ -232,8 +232,16 @@ padding:25px;
 
 font-size:24px;
 
+
+}
+#people-cloud{
+
+height:700px;
+
 }
 
+
+}
 
 
 table,
@@ -355,7 +363,7 @@ margin-bottom:30px;
 
 position:relative;
 
-height:420px;
+height:500px;
 
 }
 
