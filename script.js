@@ -240,3 +240,86 @@ document
 
 
 });
+// ======================
+// Thanks 名字云
+// ======================
+
+
+const cloud =
+document.getElementById("people-cloud");
+
+
+
+if(
+cloud &&
+typeof thanks !== "undefined"
+){
+
+
+    // 随机排序
+
+    [...thanks]
+    .sort(()=>Math.random()-0.5)
+    .forEach(name=>{
+
+
+        const div =
+        document.createElement("div");
+
+
+
+        div.className="person";
+
+
+        div.innerText=name;
+
+
+
+
+        // 随机大小
+
+        const size =
+        Math.floor(Math.random()*14)+14;
+
+
+        div.style.fontSize =
+        size+"px";
+
+
+
+
+        // 随机位置
+
+        div.style.left =
+        Math.random()*80+"%";
+
+
+        div.style.top =
+        Math.random()*75+"%";
+
+
+
+
+
+        // 随机动画速度
+
+        div.style.animationDuration =
+        Math.random()*3+4+"s";
+
+
+
+
+        // 随机延迟
+
+        div.style.animationDelay =
+        Math.random()*3+"s";
+
+
+
+        cloud.appendChild(div);
+
+
+    });
+
+
+}
