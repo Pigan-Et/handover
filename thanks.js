@@ -1,0 +1,1 @@
+const thanks = ['cecilia','dora','dorothy','elaine','ethan','evie','fiona','fish','heemin','icey','jack','jeson','john','lennox','lesley','longyun','quinn','sofia','thinco','yifeng','yuri','zitao','zoe'];
