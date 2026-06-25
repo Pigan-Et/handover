@@ -249,18 +249,34 @@ const cloud =
 document.getElementById("people-cloud");
 
 
-
 if(
 cloud &&
 typeof thanks !== "undefined"
 ){
 
 
-    // 随机排序
+    const positions = [
+
+        [10,15],
+        [35,10],
+        [65,15],
+
+        [5,45],
+        [30,40],
+        [60,45],
+        [80,50],
+
+        [15,75],
+        [45,70],
+        [70,75]
+
+    ];
+
+
 
     [...thanks]
     .sort(()=>Math.random()-0.5)
-    .forEach(name=>{
+    .forEach((name,index)=>{
 
 
         const div =
@@ -275,11 +291,10 @@ typeof thanks !== "undefined"
 
 
 
-
         // 随机大小
 
         const size =
-        Math.floor(Math.random()*14)+14;
+        Math.floor(Math.random()*10)+15;
 
 
         div.style.fontSize =
@@ -287,32 +302,30 @@ typeof thanks !== "undefined"
 
 
 
+        // 使用预设散点位置
 
-        // 随机位置
+        const pos =
+        positions[index % positions.length];
+
 
         div.style.left =
-        Math.random()*80+"%";
+        pos[0]+"%";
 
 
         div.style.top =
-        Math.random()*75+"%";
+        pos[1]+"%";
 
 
 
-
-
-        // 随机动画速度
+        // 随机漂浮
 
         div.style.animationDuration =
         Math.random()*3+4+"s";
 
 
 
-
-        // 随机延迟
-
         div.style.animationDelay =
-        Math.random()*3+"s";
+        Math.random()*2+"s";
 
 
 
