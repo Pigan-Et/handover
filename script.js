@@ -26,7 +26,7 @@ function update(){
         document.getElementById("timer").innerHTML = "";
 
         document.getElementById("celebrate").innerHTML =
-        "🎉 已顺利从本公司毕业！<br>祝大家前程似锦！";
+        "已离职<br>Have fun！！！";
 
 
         return;
