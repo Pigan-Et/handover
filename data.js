@@ -14,6 +14,6 @@ const tasks = [{project: '摩配买手', owner: 'Michelle Zhang', email: 'michel
 {project: 'Ninebot', owner: 'Yifeng', email: 'yifeng.gu@shopee.com', note: '-'},
 {project: '来货异常表格更新', owner: 'Icey Guan', email: 'icey.guan@shopeemobile-external.com', note: '仅负责更新表格公式 & 补充L1 L2数据'},
 {project: '来货异常表格更新', owner: 'Sybil Xu', email: 'sybil.xu@shopee.com', note: 'pic表格自行提取https://docs.google.com/spreadsheets/d/1VxAAs3XqeJeI94Zflpjx-tI7QBxj3kdV5-0djzfiyLI/edit?gid=36213459#gid=36213459'},
-{project: '来货异常QA', owner: '无需负责人', email: '', note: 'https://docs.google.com/spreadsheets/d/1mjAhf4h1uPHvoPZKsJ2tFzHcRpgpe4ELrlBlWdLHZKE/edit?gid=42725097#gid=42725097'}
+{project: '来货异常QA', owner: '无需负责人', email: '', note: 'https://docs.google.com/spreadsheets/d/1mjAhf4h1uPHvoPZKsJ2tFzHcRpgpe4ELrlBlWdLHZKE/edit?gid=42725097#gid=42725097'},
 {project: '汽摩配SOP', owner: 'Michelle Zhang', email: 'michelle.zhang@shopee.com', note: '业务流程SOP以及日常使用的内部tracker，工具link都在里面了https://docs.google.com/spreadsheets/d/1RJZKJKgr5QnwSC0cTbowMqeDrB8ViLD4i6lVubDzdlw/edit?usp=sharing'}
 ];
